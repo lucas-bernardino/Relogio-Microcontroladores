@@ -1,0 +1,439 @@
+******************************************************************************
+                  TI ARM Linker PC v20.2.7                     
+******************************************************************************
+>> Linked Sun Nov  5 16:29:06 2023
+
+OUTPUT FILE NAME:   <microp2uart.out>
+ENTRY POINT SYMBOL: "_c_int00_noargs"  address: 00001d61
+
+
+MEMORY CONFIGURATION
+
+         name            origin    length      used     unused   attr    fill
+----------------------  --------  ---------  --------  --------  ----  --------
+  FLASH                 00000000   00040000  00002fdf  0003d021  R  X
+  SRAM                  20000000   00008000  0000040b  00007bf5  RW X
+
+
+SEGMENT ALLOCATION MAP
+
+run origin  load origin   length   init length attrs members
+----------  ----------- ---------- ----------- ----- -------
+00000000    00000000    00002fe8   00002fe8    r-x
+  00000000    00000000    0000026c   0000026c    r-- .intvecs
+  0000026c    0000026c    00001c86   00001c86    r-x .text
+  00001ef4    00001ef4    000010bd   000010bd    r-- .const
+  00002fb8    00002fb8    00000030   00000030    r-- .cinit
+20000000    20000000    0000040b   00000000    rw-
+  20000000    20000000    00000200   00000000    rw- .stack
+  20000200    20000200    000001fe   00000000    rw- .bss
+  200003fe    200003fe    0000000d   00000000    rw- .data
+
+
+SECTION ALLOCATION MAP
+
+ output                                  attributes/
+section   page    origin      length       input sections
+--------  ----  ----------  ----------   ----------------
+.intvecs   0    00000000    0000026c     
+                  00000000    0000026c     tm4c123gh6pm_startup_ccs.obj (.intvecs)
+
+.text      0    0000026c    00001c86     
+                  0000026c    00000c48     Nokia5110.obj (.text)
+                  00000eb4    0000085c     main.obj (.text)
+                  00001710    0000016c     driverlib.lib : gpio.obj (.text:GPIOPadConfigSet)
+                  0000187c    00000118                   : sysctl.obj (.text:SysCtlClockGet)
+                  00001994    000000f4                   : sysctl.obj (.text:SysCtlClockSet)
+                  00001a88    0000009c     rtsv7M4_T_le_v4SPD16_eabi.lib : memcpy_t2.asm.obj (.text)
+                  00001b24    00000068     driverlib.lib : interrupt.obj (.text:IntEnable)
+                  00001b8c    00000068     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_lzss.c.obj (.text:decompress:lzss:__TI_decompress_lzss)
+                  00001bf4    00000060     driverlib.lib : timer.obj (.text:TimerConfigure)
+                  00001c54    0000004c                   : gpio.obj (.text:GPIOPinConfigure)
+                  00001ca0    00000046                   : uart.obj (.text:UARTConfigSetExpClk)
+                  00001ce6    00000002     --HOLE-- [fill = 0]
+                  00001ce8    00000044     rtsv7M4_T_le_v4SPD16_eabi.lib : autoinit.c.obj (.text:__TI_auto_init_nobinit_nopinit:__TI_auto_init_nobinit_nopinit)
+                  00001d2c    00000034     driverlib.lib : sysctl.obj (.text:SysCtlPeripheralEnable)
+                  00001d60    00000034     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.text:_c_int00_noargs:_c_int00_noargs)
+                  00001d94    0000002c     driverlib.lib : gpio.obj (.text:GPIODirModeSet)
+                  00001dc0    00000020                   : uart.obj (.text:UARTDisable)
+                  00001de0    0000001c     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_zero_init.c.obj (.text:decompress:ZI:__TI_zero_init_nomemset:__TI_zero_init_nomemset)
+                  00001dfc    00000016     driverlib.lib : gpio.obj (.text:GPIOPinTypeUART)
+                  00001e12    00000002     --HOLE-- [fill = 0]
+                  00001e14    00000014                   : systick.obj (.text:SysTickEnable)
+                  00001e28    00000014                   : systick.obj (.text:SysTickIntEnable)
+                  00001e3c    00000014                   : uart.obj (.text:UARTEnable)
+                  00001e50    00000012                   : timer.obj (.text:TimerLoadSet)
+                  00001e62    00000010                   : interrupt.obj (.text:IntMasterEnable)
+                  00001e72    00000002     --HOLE-- [fill = 0]
+                  00001e74    00000010                   : systick.obj (.text:SysTickPeriodSet)
+                  00001e84    0000000e                   : timer.obj (.text:TimerEnable)
+                  00001e92    0000000e     rtsv7M4_T_le_v4SPD16_eabi.lib : copy_decompress_none.c.obj (.text:decompress:none:__TI_decompress_none)
+                  00001ea0    0000000c     driverlib.lib : cpu.obj (.text:CPUcpsie)
+                  00001eac    0000000c     tm4c123gh6pm_startup_ccs.obj (.text)
+                  00001eb8    0000000a     driverlib.lib : timer.obj (.text:TimerIntDisable)
+                  00001ec2    0000000a                   : uart.obj (.text:UARTCharGet)
+                  00001ecc    00000008                   : timer.obj (.text:TimerIntEnable)
+                  00001ed4    00000008                   : uart.obj (.text:UARTIntEnable)
+                  00001edc    00000006                   : sysctl.obj (.text:SysCtlDelay)
+                  00001ee2    00000004                   : timer.obj (.text:TimerIntClear)
+                  00001ee6    00000004                   : uart.obj (.text:UARTIntClear)
+                  00001eea    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : pre_init.c.obj (.text:_system_pre_init)
+                  00001eee    00000004                                   : exit.c.obj (.text:abort:abort)
+
+.const     0    00001ef4    000010bd     
+                  00001ef4    000001e5     Nokia5110.obj (.const:ASCII)
+                  000020d9    0000015e     main.obj (.const:.string:cinco)
+                  00002237    0000015e     main.obj (.const:.string:dois)
+                  00002395    0000015e     main.obj (.const:.string:nove)
+                  000024f3    0000015e     main.obj (.const:.string:oito)
+                  00002651    0000015e     main.obj (.const:.string:quatro)
+                  000027af    0000015e     main.obj (.const:.string:seis)
+                  0000290d    0000015e     main.obj (.const:.string:sete)
+                  00002a6b    0000015e     main.obj (.const:.string:tres)
+                  00002bc9    0000015e     main.obj (.const:.string:um)
+                  00002d27    0000015e     main.obj (.const:.string:zero)
+                  00002e85    00000003     --HOLE-- [fill = 0]
+                  00002e88    00000090     driverlib.lib : gpio.obj (.const:g_pui32GPIOBaseAddrs)
+                  00002f18    0000006c                   : sysctl.obj (.const:g_pui32Xtals)
+                  00002f84    00000014                   : interrupt.obj (.const:g_pui32EnRegs)
+                  00002f98    0000000c     Nokia5110.obj (.const:MIX_SIMBOLS)
+                  00002fa4    00000008     Nokia5110.obj (.const:.string:Masks)
+                  00002fac    00000005     Nokia5110.obj (.const:SPECIAL_SIMBOLS)
+
+.cinit     0    00002fb8    00000030     
+                  00002fb8    0000000c     (__TI_handler_table)
+                  00002fc4    00000009     (.cinit..data.load) [load image, compression = lzss]
+                  00002fcd    00000003     --HOLE-- [fill = 0]
+                  00002fd0    00000008     (.cinit..bss.load) [load image, compression = zero_init]
+                  00002fd8    00000010     (__TI_cinit_table)
+
+.init_array 
+*          0    00000000    00000000     UNINITIALIZED
+
+.bss       0    20000200    000001fe     UNINITIALIZED
+                  20000200    000001f8     (.common:Screen)
+                  200003f8    00000001     (.common:copia_0)
+                  200003f9    00000001     (.common:copia_1)
+                  200003fa    00000001     (.common:copia_2)
+                  200003fb    00000001     (.common:copia_3)
+                  200003fc    00000001     (.common:copia_4)
+                  200003fd    00000001     (.common:copia_5)
+
+.data      0    200003fe    0000000d     UNINITIALIZED
+                  200003fe    0000000c     main.obj (.data:array_horario)
+                  2000040a    00000001     main.obj (.data)
+
+.stack     0    20000000    00000200     UNINITIALIZED
+                  20000000    00000004     rtsv7M4_T_le_v4SPD16_eabi.lib : boot_cortex_m.c.obj (.stack)
+                  20000004    000001fc     --HOLE--
+
+__llvm_prf_cnts 
+*          0    20000000    00000000     UNINITIALIZED
+
+MODULE SUMMARY
+
+       Module                         code   ro data   rw data
+       ------                         ----   -------   -------
+    .\
+       main.obj                       2140   3500      19     
+       Nokia5110.obj                  3144   510       504    
+       tm4c123gh6pm_startup_ccs.obj   12     620       0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         5296   4630      523    
+                                                              
+    C:/ti/TivaWare_C_Series-2.2.0.295/driverlib/ccs/Debug/driverlib.lib
+       sysctl.obj                     582    108       0      
+       gpio.obj                       506    144       0      
+       timer.obj                      150    0         0      
+       uart.obj                       144    0         0      
+       interrupt.obj                  120    20        0      
+       systick.obj                    56     0         0      
+       cpu.obj                        12     0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         1570   272       0      
+                                                              
+    C:\ti\ccs1210\ccs\tools\compiler\ti-cgt-arm_20.2.7.LTS\lib\rtsv7M4_T_le_v4SPD16_eabi.lib
+       memcpy_t2.asm.obj              156    0         0      
+       copy_decompress_lzss.c.obj     104    0         0      
+       autoinit.c.obj                 68     0         0      
+       boot_cortex_m.c.obj            52     0         0      
+       copy_zero_init.c.obj           28     0         0      
+       copy_decompress_none.c.obj     14     0         0      
+       exit.c.obj                     4      0         0      
+       pre_init.c.obj                 4      0         0      
+    +--+------------------------------+------+---------+---------+
+       Total:                         430    0         0      
+                                                              
+       Stack:                         0      0         512    
+       Linker Generated:              0      45        0      
+    +--+------------------------------+------+---------+---------+
+       Grand Total:                   7296   4947      1035   
+
+
+LINKER GENERATED COPY TABLES
+
+__TI_cinit_table @ 00002fd8 records: 2, size/record: 8, table size: 16
+	.data: load addr=00002fc4, load size=00000009 bytes, run addr=200003fe, run size=0000000d bytes, compression=lzss
+	.bss: load addr=00002fd0, load size=00000008 bytes, run addr=20000200, run size=000001fe bytes, compression=zero_init
+
+
+LINKER GENERATED HANDLER TABLE
+
+__TI_handler_table @ 00002fb8 records: 3, size/record: 4, table size: 12
+	index: 0, handler: __TI_decompress_lzss
+	index: 1, handler: __TI_decompress_none
+	index: 2, handler: __TI_zero_init
+
+
+GLOBAL SYMBOLS: SORTED ALPHABETICALLY BY Name 
+
+address   name                          
+-------   ----                          
+00001eef  C$$EXIT                       
+00001ea1  CPUcpsie                      
+00001d95  GPIODirModeSet                
+00001711  GPIOPadConfigSet              
+00001c55  GPIOPinConfigure              
+00001dfd  GPIOPinTypeUART               
+0000113d  Handler_UART0                 
+00001b25  IntEnable                     
+00001e63  IntMasterEnable               
+00002fa4  Masks                         
+000006e9  Nokia5110_Clear               
+000009b1  Nokia5110_ClearBuffer         
+000009e5  Nokia5110_ClrPxl              
+000006a9  Nokia5110_Cursor              
+000009db  Nokia5110_DisplayBuffer       
+00000d89  Nokia5110_DrawChar            
+00000715  Nokia5110_DrawFullImage       
+00000df3  Nokia5110_DrawMix             
+00000dc1  Nokia5110_DrawSpecial         
+000002db  Nokia5110_Init                
+00000755  Nokia5110_MyDrawing           
+000003f5  Nokia5110_OutChar             
+00000c6b  Nokia5110_OutCharInv          
+00000aa5  Nokia5110_OutDec              
+00000d41  Nokia5110_OutSpecial          
+0000042f  Nokia5110_OutString           
+00000cfd  Nokia5110_OutStringInv        
+00000459  Nokia5110_OutUDec             
+00000e6b  Nokia5110_Padding             
+000007cd  Nokia5110_PrintBMP            
+00000659  Nokia5110_SetCursor           
+00000a0b  Nokia5110_SetPxl              
+00000a31  PLL_Init                      
+00001ead  ResetISR                      
+20000200  Screen                        
+0000187d  SysCtlClockGet                
+00001995  SysCtlClockSet                
+00001edd  SysCtlDelay                   
+00001d2d  SysCtlPeripheralEnable        
+00001e15  SysTickEnable                 
+00000eb5  SysTickHandler                
+00001e29  SysTickIntEnable              
+00001e75  SysTickPeriodSet              
+0000151d  Timer0IntHandler              
+00001bf5  TimerConfigure                
+00001e85  TimerEnable                   
+00001ee3  TimerIntClear                 
+00001eb9  TimerIntDisable               
+00001ecd  TimerIntEnable                
+00001e51  TimerLoadSet                  
+00001ec3  UARTCharGet                   
+00001ca1  UARTConfigSetExpClk           
+00001dc1  UARTDisable                   
+00001e3d  UARTEnable                    
+00001ee7  UARTIntClear                  
+00001ed5  UARTIntEnable                 
+20000200  __STACK_END                   
+00000200  __STACK_SIZE                  
+20000200  __STACK_TOP                   
+00002fd8  __TI_CINIT_Base               
+00002fe8  __TI_CINIT_Limit              
+00002fb8  __TI_Handler_Table_Base       
+00002fc4  __TI_Handler_Table_Limit      
+00001ce9  __TI_auto_init_nobinit_nopinit
+00001b8d  __TI_decompress_lzss          
+00001e93  __TI_decompress_none          
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+00000000  __TI_static_base__            
+00001de1  __TI_zero_init_nomemset       
+00001a89  __aeabi_memcpy                
+00001a89  __aeabi_memcpy4               
+00001a89  __aeabi_memcpy8               
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+UNDEFED   __mpu_init                    
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+00001d61  _c_int00_noargs               
+UNDEFED   _system_post_cinit            
+00001eeb  _system_pre_init              
+00001eef  abort                         
+200003fe  array_horario                 
+ffffffff  binit                         
+000020d9  cinco                         
+200003f8  copia_0                       
+200003f9  copia_1                       
+200003fa  copia_2                       
+200003fb  copia_3                       
+200003fc  copia_4                       
+200003fd  copia_5                       
+00001549  display_digital_clock         
+0000136d  display_hand_clock            
+00002237  dois                          
+2000040a  flag_hands                    
+00000000  g_pfnVectors                  
+000012c1  handle_hands                  
+00001601  main                          
+00001a89  memcpy                        
+00001235  mostra_cinco                  
+000011e1  mostra_dois                   
+000012a5  mostra_nove                   
+00001289  mostra_oito                   
+00001219  mostra_quatro                 
+00001251  mostra_seis                   
+0000126d  mostra_sete                   
+000011fd  mostra_tres                   
+000011c5  mostra_um                     
+000011a9  mostra_zero                   
+00002395  nove                          
+000024f3  oito                          
+00002651  quatro                        
+000027af  seis                          
+00000e75  set_mapa_buffer               
+0000290d  sete                          
+00002a6b  tres                          
+00002bc9  um                            
+00002d27  zero                          
+
+
+GLOBAL SYMBOLS: SORTED BY Symbol Address 
+
+address   name                          
+-------   ----                          
+00000000  __TI_static_base__            
+00000000  g_pfnVectors                  
+00000200  __STACK_SIZE                  
+000002db  Nokia5110_Init                
+000003f5  Nokia5110_OutChar             
+0000042f  Nokia5110_OutString           
+00000459  Nokia5110_OutUDec             
+00000659  Nokia5110_SetCursor           
+000006a9  Nokia5110_Cursor              
+000006e9  Nokia5110_Clear               
+00000715  Nokia5110_DrawFullImage       
+00000755  Nokia5110_MyDrawing           
+000007cd  Nokia5110_PrintBMP            
+000009b1  Nokia5110_ClearBuffer         
+000009db  Nokia5110_DisplayBuffer       
+000009e5  Nokia5110_ClrPxl              
+00000a0b  Nokia5110_SetPxl              
+00000a31  PLL_Init                      
+00000aa5  Nokia5110_OutDec              
+00000c6b  Nokia5110_OutCharInv          
+00000cfd  Nokia5110_OutStringInv        
+00000d41  Nokia5110_OutSpecial          
+00000d89  Nokia5110_DrawChar            
+00000dc1  Nokia5110_DrawSpecial         
+00000df3  Nokia5110_DrawMix             
+00000e6b  Nokia5110_Padding             
+00000e75  set_mapa_buffer               
+00000eb5  SysTickHandler                
+0000113d  Handler_UART0                 
+000011a9  mostra_zero                   
+000011c5  mostra_um                     
+000011e1  mostra_dois                   
+000011fd  mostra_tres                   
+00001219  mostra_quatro                 
+00001235  mostra_cinco                  
+00001251  mostra_seis                   
+0000126d  mostra_sete                   
+00001289  mostra_oito                   
+000012a5  mostra_nove                   
+000012c1  handle_hands                  
+0000136d  display_hand_clock            
+0000151d  Timer0IntHandler              
+00001549  display_digital_clock         
+00001601  main                          
+00001711  GPIOPadConfigSet              
+0000187d  SysCtlClockGet                
+00001995  SysCtlClockSet                
+00001a89  __aeabi_memcpy                
+00001a89  __aeabi_memcpy4               
+00001a89  __aeabi_memcpy8               
+00001a89  memcpy                        
+00001b25  IntEnable                     
+00001b8d  __TI_decompress_lzss          
+00001bf5  TimerConfigure                
+00001c55  GPIOPinConfigure              
+00001ca1  UARTConfigSetExpClk           
+00001ce9  __TI_auto_init_nobinit_nopinit
+00001d2d  SysCtlPeripheralEnable        
+00001d61  _c_int00_noargs               
+00001d95  GPIODirModeSet                
+00001dc1  UARTDisable                   
+00001de1  __TI_zero_init_nomemset       
+00001dfd  GPIOPinTypeUART               
+00001e15  SysTickEnable                 
+00001e29  SysTickIntEnable              
+00001e3d  UARTEnable                    
+00001e51  TimerLoadSet                  
+00001e63  IntMasterEnable               
+00001e75  SysTickPeriodSet              
+00001e85  TimerEnable                   
+00001e93  __TI_decompress_none          
+00001ea1  CPUcpsie                      
+00001ead  ResetISR                      
+00001eb9  TimerIntDisable               
+00001ec3  UARTCharGet                   
+00001ecd  TimerIntEnable                
+00001ed5  UARTIntEnable                 
+00001edd  SysCtlDelay                   
+00001ee3  TimerIntClear                 
+00001ee7  UARTIntClear                  
+00001eeb  _system_pre_init              
+00001eef  C$$EXIT                       
+00001eef  abort                         
+000020d9  cinco                         
+00002237  dois                          
+00002395  nove                          
+000024f3  oito                          
+00002651  quatro                        
+000027af  seis                          
+0000290d  sete                          
+00002a6b  tres                          
+00002bc9  um                            
+00002d27  zero                          
+00002fa4  Masks                         
+00002fb8  __TI_Handler_Table_Base       
+00002fc4  __TI_Handler_Table_Limit      
+00002fd8  __TI_CINIT_Base               
+00002fe8  __TI_CINIT_Limit              
+20000000  __stack                       
+20000000  __start___llvm_prf_cnts       
+20000000  __stop___llvm_prf_cnts        
+20000200  Screen                        
+20000200  __STACK_END                   
+20000200  __STACK_TOP                   
+200003f8  copia_0                       
+200003f9  copia_1                       
+200003fa  copia_2                       
+200003fb  copia_3                       
+200003fc  copia_4                       
+200003fd  copia_5                       
+200003fe  array_horario                 
+2000040a  flag_hands                    
+ffffffff  __TI_pprof_out_hndl           
+ffffffff  __TI_prof_data_size           
+ffffffff  __TI_prof_data_start          
+ffffffff  __binit__                     
+ffffffff  __c_args__                    
+ffffffff  binit                         
+UNDEFED   __mpu_init                    
+UNDEFED   _system_post_cinit            
+
+[120 symbols]
